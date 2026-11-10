@@ -1,0 +1,6 @@
+# Replace each file with a scan or screenshot (jpg, png, svg) of the real certificate.
+- {name: "Specialized technical scientific course in forensic evidence", issuer: "Mansoura University", date: "2024-08", when: "08/2024", file: "/assets/img/certificates/Specialized-technical-scientific-course-in-forensic-evidence.png"}
+- {name: "The Forensic Evidence in Achieving Justice", issuer: "Mansoura University", date: "2024-08", when: "08/2024", file: "/assets/certs/justice.svg"}
+- {name: "Evidence of bloodshed at the crime scene", issuer: "Mansoura University", date: "2024-05", when: "05/2024", file: "/assets/img/certificates/Evidence-of-bloodshed-at-crime-scene-course.png"}
+- {name: "Medical Analysis Principle Course", issuer: "First Aid Team", date: "2025-07", when: "07/2025", file: "/assets/img/certificates/Medical-analysis-principle-course.png"}
+- {name: "Bloodborne Pathogens Certification Course", issuer: "NHCPS / SaveaLife.com", date: "2025-07-10", when: "07/2025", file: "/assets/img/certificates/bloodborn-pathogens.png"}

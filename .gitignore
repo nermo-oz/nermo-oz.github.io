@@ -1,0 +1,18 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler / vendored gems
+.bundle/
+vendor/
+node_modules/
+
+# Local-only archive of the site
+zip/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+*.swp

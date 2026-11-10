@@ -1,0 +1,22 @@
+---
+layout: default
+title: Personal
+permalink: /personal/
+---
+{% assign p = site.data.personal %}
+<section id="me" data-sec="Intro">
+  <h1 style="font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:1.2rem">Personal</h1>
+  <p class="lede" style="max-width:40ch">{{ p.intro }}</p>
+</section>
+<section id="hobbies" data-sec="Hobbies">
+  <h2>Hobbies</h2>
+  <ul class="tags">{% for h in p.hobbies %}<li class="chip" data-pop="{{ h.note }}">{{ h.name }}</li>{% endfor %}</ul>
+</section>
+<section id="talk" data-sec="Let's talk about">
+  <h2>Things I like to talk about</h2>
+  <ul class="rows">{% for t in p.topics %}<li><span>{{ t.name }}</span><small>{{ t.note }}</small></li>{% endfor %}</ul>
+</section>
+<section id="gallery" data-sec="Gallery">
+  <h2>Gallery</h2>
+  <div class="gal">{% for g in p.gallery %}<button type="button" data-lb="{{ g.file | relative_url }}" data-cap="{{ g.caption }}" aria-label="Open photo: {{ g.caption }}"><img src="{{ g.file | relative_url }}" alt="{{ g.caption }}" loading="lazy"></button>{% endfor %}</div>
+</section>

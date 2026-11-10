@@ -1,0 +1,16 @@
+# Everything on the personal page comes from here. Replace the placeholders.
+intro: "Write a few lines about yourself here."
+hobbies:
+  - {name: "Add a hobby", note: "A line about why you enjoy it"}
+  - {name: "Another hobby", note: "Shown when visitors hover"}
+  - {name: "One more", note: "Shown when visitors hover"}
+topics:
+  - {name: "Add a topic", note: "What you'd like to chat about"}
+  - {name: "Another topic", note: "A line about it"}
+gallery:
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}
+  - {file: "/assets/img/placeholder.svg", caption: "Add a photo"}

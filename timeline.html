@@ -1,0 +1,12 @@
+---
+layout: default
+title: Timeline
+permalink: /timeline/
+---
+<section>
+  <h1 style="font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:2.2rem">Timeline</h1>
+  <ol class="tl">
+  {% assign tl = site.data.timeline | sort: "date" | reverse %}
+  {% for t in tl %}<li><time>{{ t.when }}</time><h3>{{ t.title }}</h3><p>{{ t.note }}</p></li>{% endfor %}
+  </ol>
+</section>

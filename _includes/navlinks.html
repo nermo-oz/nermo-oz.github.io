@@ -1,0 +1,1 @@
+{% for n in site.data.nav %}<a class="rise" style="--i:{{ forloop.index0 }}" href="{{ n.u | relative_url }}"{% if page.url == n.u or n.u == '/blog/' and page.url contains '/blog' %} aria-current="page"{% endif %}>{{ n.t }}</a>{% endfor %}

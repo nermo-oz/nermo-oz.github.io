@@ -1,0 +1,5 @@
+- {t: Home, u: /}
+- {t: Timeline, u: /timeline/}
+- {t: Certificates, u: /certificates/}
+- {t: Blog, u: /blog/}
+- {t: Personal, u: /personal/}

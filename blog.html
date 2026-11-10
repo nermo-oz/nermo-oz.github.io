@@ -1,0 +1,11 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<section>
+  <h1 style="font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:2rem">Blog</h1>
+  <ul class="rows">
+  {% for post in site.posts %}<li><span><a href="{{ post.url | relative_url }}">{{ post.title }}</a><br><small>{{ post.excerpt | strip_html | truncatewords: 30 }}</small></span><time>{{ post.date | date: "%b %-d, %Y" }}</time></li>{% else %}<li>No posts yet.</li>{% endfor %}
+  </ul>
+</section>

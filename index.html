@@ -1,0 +1,91 @@
+---
+layout: default
+---
+<section class="hero" id="intro" data-sec="Intro">
+  <div>
+    <h1>Nermeen<br>Moawad</h1>
+    <p class="lede">Chemistry and Criminal Evidence graduate with advanced technical proficiency in computational modeling and data analysis.</p>
+    <div class="cta">
+      <a class="btn" href="{{ site.cv | relative_url }}" download>Download my CV</a>
+      <span class="note">← worth a look</span>
+    </div>
+  </div>
+  <div>
+    <svg class="mol" viewBox="30 40 225 150" role="img" aria-label="Line drawing of a steroid skeleton: four fused rings" data-pop="A steroid skeleton, the family Kyzatrex belongs to. Her research modifies its structure in silico.">
+      <polygon class="ring" pathLength="1" points="70,106 99.4,123 99.4,157 70,174 40.6,157 40.6,123"/>
+      <polygon class="ring" pathLength="1" points="128.8,106 158.2,123 158.2,157 128.8,174 99.4,157 99.4,123"/>
+      <polygon class="ring" pathLength="1" points="158.2,55 187.6,72 187.6,106 158.2,123 128.8,106 128.8,72"/>
+      <polygon class="ring" pathLength="1" points="187.6,72 220,62 240,89 220,116 187.6,106"/>
+      <circle class="atom" cx="240" cy="89" r="6"/>
+    </svg>
+    <span class="hand">hover the rings</span>
+  </div>
+</section>
+
+<section id="about" class="about" data-sec="About">
+  <h2>About</h2>
+  <p>Highly motivated Chemistry and Criminal Evidence graduate with a strong academic foundation from <a href="#education" data-pop="Bachelor of Science, GPA 3.967 out of 4">Mansoura University</a>. Advanced technical proficiency in <mark>computational modeling</mark> and data analysis, with practical academic experience in laboratory chemistry, analytical techniques, chemical structural modification and analytical system development.</p>
+  <p>Committed to contributing to academic excellence, supporting laboratory research, and fostering an engaging learning environment for students.</p>
+  <p><a href="{{ '/personal/' | relative_url }}">More about me</a></p>
+</section>
+
+<section id="projects" data-sec="Projects">
+  <h2>Projects</h2>
+  <article class="card">
+    <h3>Computational drug design and steroid modification</h3>
+    <p>In silico research on the structural modification of the steroid <a href="#skills" data-pop="Kyzatrex, the steroid this project works on">Kyzatrex</a> to enhance its pharmacological profile. Molecular modeling software used for receptor-binding simulations.</p>
+    <div class="meter"><b>−8.0</b><span>optimized binding affinity</span><span class="bar" aria-hidden="true"><i></i></span></div>
+    <ul class="tags"><li>In silico</li><li>Receptor binding</li><li>Molecular modeling</li></ul>
+  </article>
+  <article class="card">
+    <h3>SpectrumHub</h3>
+    <p>An automated analytical system: a web-based tool built with Python and Streamlit that automates the identification of chemical compounds from Mass Spectrometry data. Advanced data processing libraries streamline <mark>spectral analysis</mark>, improving accuracy and throughput.</p>
+    <ul class="tags"><li>Python</li><li>Streamlit</li><li>Mass spectrometry</li></ul>
+  </article>
+</section>
+
+<section id="education" data-sec="Education">
+  <h2>Education</h2>
+  <div class="edu">
+    <h3>Mansoura University</h3>
+    <p>Bachelor's degree in Science, Department of Chemistry and Criminal Evidence</p>
+    <p>Sep 2022 – Aug 2026 · GPA <mark>3.967</mark> / 4</p>
+  </div>
+  <a class="btn ghost" href="{{ '/certificates/' | relative_url }}">See certificates</a>
+</section>
+
+<section id="skills" data-sec="Skills">
+  <h2>Technical skills</h2>
+  <div class="skillgroup"><h3>Computational and data</h3><ul class="tags">
+    <li class="chip" data-pop="Powers SpectrumHub, a Streamlit app">Python</li><li class="chip">SQL</li><li class="chip">Power BI</li><li class="chip">Excel</li>
+    <li class="chip" data-pop="Used for the Kyzatrex binding simulations">Molecular modeling</li><li class="chip">Computational chemistry</li><li class="chip">Data analysis and automation in laboratory sciences</li></ul></div>
+  <div class="skillgroup"><h3>Lab equipment</h3><ul class="tags">
+    <li class="chip">Solution and reagent preparation</li><li class="chip">Calibration</li>
+    <li class="chip" data-pop="Also the input data for SpectrumHub">Mass spectrometry</li><li class="chip">Spectroscopy</li><li class="chip">Chromatography</li></ul></div>
+  <div class="skillgroup"><h3>Safety and quality</h3><ul class="tags">
+    <li class="chip">Laboratory safety protocols</li><li class="chip">Chemical waste management</li><li class="chip">GLP (Good Laboratory Practice)</li></ul></div>
+  <div class="skillgroup"><h3>Languages</h3><ul class="tags">
+    <li class="chip">Arabic, native</li><li class="chip">English, proficient</li></ul></div>
+</section>
+
+<section id="journey" data-sec="Journey">
+  <h2>Latest on the timeline</h2>
+  <ul class="rows">
+  {% assign tl = site.data.timeline | sort: "date" | reverse %}
+  {% for t in tl limit: 5 %}<li><span>{{ t.title }}</span><time>{{ t.when }}</time></li>{% endfor %}
+  </ul>
+  <p style="margin-top:1.4rem"><a class="btn ghost" href="{{ '/timeline/' | relative_url }}">Full timeline</a></p>
+</section>
+
+<section id="writing" data-sec="Writing">
+  <h2>From the blog</h2>
+  <ul class="rows">
+  {% for post in site.posts limit: 3 %}<li><span><a href="{{ post.url | relative_url }}">{{ post.title }}</a><br><small>{{ post.excerpt | strip_html | truncatewords: 22 }}</small></span><time>{{ post.date | date: "%b %Y" }}</time></li>{% else %}<li>No posts yet.</li>{% endfor %}
+  </ul>
+  <p style="margin-top:1.4rem"><a class="btn ghost" href="{{ '/blog/' | relative_url }}">All posts</a></p>
+</section>
+
+<section id="contact" data-sec="Contact">
+  <h2>Contact</h2>
+  <p class="big"><a href="mailto:{{ site.email }}" data-copy="{{ site.email }}" data-pop="Click to copy the address">{{ site.email }}</a></p>
+</section>

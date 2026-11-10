@@ -1,0 +1,19 @@
+title: Nermeen Moawad
+description: Chemistry and Criminal Evidence graduate with advanced technical proficiency in computational modeling and data analysis.
+url: "https://nermo-oz.github.io"
+baseurl: ""
+permalink: /blog/:title/
+email: nermeenmoawad12@gmail.com
+location: Mansoura, Egypt
+cv: /assets/Nermeen_Moawad_CV.pdf
+# TODO: replace the ORCID placeholder below with the real profile link
+linkedin: https://www.linkedin.com/in/nermeen-hanna-60883a36b
+github: https://github.com/nermo-oz
+orcid: https://orcid.org/0000-0000-0000-0000
+instagram: https://instagram.com/nermeen.moawad.50
+exclude: [Gemfile, Gemfile.lock, vendor, node_modules, zip]
+
+# no caching while developing locally
+webrick:
+  headers:
+    Cache-Control: "no-cache, no-store, must-revalidate"
