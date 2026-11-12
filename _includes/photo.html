@@ -1,4 +1,5 @@
-<a class="photo" href="{{ '/personal/' | relative_url }}" aria-label="More about me" data-pop="More about me">
+{% assign personal = site.pages | where: "url", "/personal/" | first %}
+{% if personal %}<a class="photo" href="{{ '/personal/' | relative_url }}" aria-label="More about me" data-pop="More about me">{% else %}<div class="photo">{% endif %}
   <span aria-hidden="true">NM</span>
   <img src="{{ '/assets/img/me.jpg' | relative_url }}" alt="Portrait of {{ site.title }}" decoding="async" onerror="this.remove()">
-</a>
+{% if personal %}</a>{% else %}</div>{% endif %}

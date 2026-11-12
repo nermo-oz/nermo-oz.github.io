@@ -26,7 +26,7 @@ layout: default
   <h2>About</h2>
   <p>Highly motivated Chemistry and Criminal Evidence graduate with a strong academic foundation from <a href="#education" data-pop="Bachelor of Science, GPA 3.967 out of 4">Mansoura University</a>. Advanced technical proficiency in <mark>computational modeling</mark> and data analysis, with practical academic experience in laboratory chemistry, analytical techniques, chemical structural modification and analytical system development.</p>
   <p>Committed to contributing to academic excellence, supporting laboratory research, and fostering an engaging learning environment for students.</p>
-  <p><a href="{{ '/personal/' | relative_url }}">More about me</a></p>
+  {% assign personal = site.pages | where: "url", "/personal/" | first %}{% if personal %}<p><a href="{{ '/personal/' | relative_url }}">More about me</a></p>{% endif %}
 </section>
 
 <section id="projects" data-sec="Projects">
@@ -77,13 +77,13 @@ layout: default
   <p class="more"><a class="btn ghost" href="{{ '/timeline/' | relative_url }}">Full timeline</a></p>
 </section>
 
-<section id="writing" data-sec="Writing">
+{% if site.posts.size > 0 %}<section id="writing" data-sec="Writing">
   <h2>From the blog</h2>
   <ul class="rows">
   {% for post in site.posts limit: 3 %}<li><span><a href="{{ post.url | relative_url }}">{{ post.title }}</a><br><small>{{ post.excerpt | strip_html | truncatewords: 22 }}</small></span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time></li>{% else %}<li>No posts yet.</li>{% endfor %}
   </ul>
   <p class="more"><a class="btn ghost" href="{{ '/blog/' | relative_url }}">All posts</a></p>
-</section>
+</section>{% endif %}
 
 <section id="contact" data-sec="Contact">
   <h2>Contact</h2>

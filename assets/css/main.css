@@ -1157,6 +1157,13 @@ visibility:hidden}
     .mnav a {
     font-size:2.2rem}
 
+    .meter {
+        flex-wrap:wrap;
+    gap:.4rem 1rem}
+
+    .meter .bar {
+    flex:1 0 100%}
+
 }
 
 @media(hover:none) {
