@@ -1,7 +1,7 @@
 <ul class="links">
   <li><a href="mailto:{{ site.email }}" data-copy="{{ site.email }}" data-pop="Click to copy the address">{% if include.icons %}{% include icon.html n='email' %}{% endif %}Email</a></li>
-  <li><a href="{{ site.linkedin }}" rel="noopener" data-pop="Opens LinkedIn">{% if include.icons %}{% include icon.html n='linkedin' %}{% endif %}LinkedIn</a></li>
-  <li><a href="{{ site.github }}" rel="noopener" data-pop="Opens GitHub">{% if include.icons %}{% include icon.html n='github' %}{% endif %}GitHub</a></li>
-  <li><a href="{{ site.orcid }}" rel="noopener" data-pop="Opens ORCID">{% if include.icons %}{% include icon.html n='orcid' %}{% endif %}ORCID</a></li>
-  <li><a href="{{ site.instagram }}" rel="noopener" data-pop="Opens Instagram">{% if include.icons %}{% include icon.html n='instagram' %}{% endif %}Instagram</a></li>
+  {% unless site.linkedin == blank or site.linkedin contains 'your-username' %}<li><a href="{{ site.linkedin }}" rel="noopener" data-pop="Opens LinkedIn">{% if include.icons %}{% include icon.html n='linkedin' %}{% endif %}LinkedIn</a></li>{% endunless %}
+  {% unless site.github == blank or site.github contains 'your-username' %}<li><a href="{{ site.github }}" rel="noopener" data-pop="Opens GitHub">{% if include.icons %}{% include icon.html n='github' %}{% endif %}GitHub</a></li>{% endunless %}
+  {% unless site.orcid == blank or site.orcid contains '0000-0000-0000-0000' %}<li><a href="{{ site.orcid }}" rel="noopener" data-pop="Opens ORCID">{% if include.icons %}{% include icon.html n='orcid' %}{% endif %}ORCID</a></li>{% endunless %}
+  {% unless site.instagram == blank or site.instagram contains 'your-username' %}<li><a href="{{ site.instagram }}" rel="noopener" data-pop="Opens Instagram">{% if include.icons %}{% include icon.html n='instagram' %}{% endif %}Instagram</a></li>{% endunless %}
 </ul>

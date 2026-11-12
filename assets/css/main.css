@@ -1,16 +1,31 @@
-/* tokens & base */
-:root {
+/* ===== tokens & base ===== */ :root {
+    color-scheme:light;
     --ink:#000;
     --paper:#fff;
     --pink:#ff3d8b;
     --yellow:#ffe94a;
     --soft:rgba(0,0,0,.58);
     --line:rgba(0,0,0,.14);
+    --bar:rgba(255,255,255,.88);
+    --veil:rgba(255,255,255,.82);
+    --hatch:rgba(0,0,0,.06);
+    --chalk:rgba(0,0,0,.1);
     --sk:255px 14px 225px 14px/14px 225px 14px 255px;
     --ease:cubic-bezier(.65,0,.35,1);
     --serif:"Fraunces",Georgia,serif;
     --sans:"Figtree",system-ui,sans-serif;
 --hand:"Caveat",cursive}
+
+html[data-theme="dark"] {
+    color-scheme:dark;
+    --ink:#f4f4f2;
+    --paper:#0b0b0b;
+    --soft:rgba(244,244,242,.62);
+    --line:rgba(255,255,255,.16);
+    --bar:rgba(11,11,11,.86);
+    --veil:rgba(11,11,11,.82);
+    --hatch:rgba(255,255,255,.07);
+--chalk:rgba(255,255,255,.1)}
 
 * {
 box-sizing:border-box}
@@ -30,7 +45,8 @@ body:has(dialog[open]) {
 overflow:hidden}
 
 ::selection {
-background:var(--yellow)}
+    background:var(--yellow);
+color:#000}
 
 a {
     color:inherit;
@@ -74,6 +90,25 @@ padding-bottom:2.5rem}
 [data-pop] {
 cursor:help}
 
+main:focus {
+outline:0}
+
+.skip {
+    position:absolute;
+    left:1rem;
+    top:-4rem;
+    z-index:200;
+    background:var(--ink);
+    color:var(--paper);
+    padding:.5rem 1rem;
+    border-radius:var(--sk);
+    text-decoration:none;
+transition:top .2s}
+
+.skip:focus {
+    top:.8rem;
+background:var(--ink)}
+
 @keyframes draw {
     to {
     stroke-dashoffset:0}
@@ -90,7 +125,7 @@ cursor:help}
 position:sticky;
 top:0;
 z-index:50;
-background:rgba(255,255,255,.88);
+background:var(--bar);
 -webkit-backdrop-filter:blur(10px);
 backdrop-filter:blur(10px);
 border-bottom:1px solid transparent;
@@ -133,7 +168,7 @@ fill:currentColor}
 fill:var(--yellow)}
 
 .logo text:first-of-type {
-fill:var(--ink)}
+fill:#000}
 
 .logo .lr {
     stroke-dasharray:1;
@@ -178,7 +213,8 @@ display:inline-block}
 text-decoration:none}
 
 .dnav a.cv:hover,.menu a.cv:hover {
-background:var(--pink)}
+    background:var(--pink);
+color:#000}
 
 .cva {
     position:absolute;
@@ -294,7 +330,7 @@ transform:rotate(-8deg)}
     border-radius:var(--sk);
     overflow:hidden;
     position:relative;
-    background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(0,0,0,.06) 8px 9px);
+    background:repeating-linear-gradient(45deg,transparent 0 8px,var(--hatch) 8px 9px);
 transition:transform .25s}
 
 .photo:hover {
@@ -462,10 +498,11 @@ mark {
     background:linear-gradient(var(--yellow),var(--yellow)) 0 88%/0 .62em no-repeat;
     color:inherit;
     padding:0 .08em;
-transition:background-size .8s cubic-bezier(.6,0,.2,1)}
+transition:background-size .8s cubic-bezier(.6,0,.2,1),color .3s .35s}
 
 mark.in {
-background-size:100% .62em}
+    background-size:100% .62em;
+color:#000}
 
 .about p {
     margin:0 0 1.1rem;
@@ -485,14 +522,15 @@ transition:background .2s,color .2s}
 
 .btn:hover {
     background:var(--pink);
-color:var(--ink)}
+color:#000}
 
 .btn.ghost {
     background:transparent;
 color:var(--ink)}
 
 .btn.ghost:hover {
-background:var(--pink)}
+    background:var(--pink);
+color:#000}
 
 .card {
     border:1.5px solid var(--ink);
@@ -521,6 +559,7 @@ transition:background .2s,transform .2s}
 
 .chip[data-pop]:hover {
     background:var(--pink);
+    color:#000;
 transform:rotate(-2deg)}
 
 .meter {
@@ -551,7 +590,7 @@ overflow:hidden}
 transition:width 1.2s cubic-bezier(.6,0,.2,1)}
 
 .meter.in .bar i {
-width:80%}
+width:var(--v,80%)}
 
 .edu {
 margin-bottom:2rem}
@@ -685,6 +724,32 @@ outline-offset:3px}
     object-fit:cover;
 display:block}
 
+.title {
+    font-size:clamp(2.4rem,6vw,3.6rem);
+margin-bottom:2rem}
+
+.title.sub {
+margin-bottom:1.2rem}
+
+.lede.narrow {
+max-width:40ch}
+
+.hand.left {
+text-align:left}
+
+.more {
+margin-top:1.4rem}
+
+.post-body {
+margin-top:1.6rem}
+
+.title.tight {
+margin-bottom:.6rem}
+
+.prose .title {
+    font-size:clamp(2.2rem,5vw,3.2rem);
+margin-bottom:0}
+
 .prose {
 max-width:62ch}
 
@@ -747,7 +812,7 @@ dialog {
     border:1.5px solid var(--ink);
     border-radius:var(--sk);
     padding:1.2rem;
-    max-width:min(92vw,1000px);
+    width:min(92vw,960px);
     background:var(--paper);
 color:var(--ink)}
 
@@ -758,7 +823,7 @@ backdrop-filter:blur(3px)}
 
 dialog img {
     display:block;
-    width:min(86vw,900px);
+    width:100%;
     height:min(74vh,640px);
     object-fit:contain;
 margin:1.6rem auto 0}
@@ -801,7 +866,7 @@ display:none}
     inset:-20px -26px -20px -34px;
     z-index:-1;
     border-radius:50%;
-    background:rgba(255,255,255,.82);
+    background:var(--veil);
     -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     -webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent 100%);
@@ -850,6 +915,9 @@ transition:color .2s,translate .6s var(--ease)}
 .seq button:hover {
 color:var(--ink)}
 
+.seq button:disabled {
+cursor:default}
+
 .seq button:focus-visible {
     outline:2px solid var(--pink);
 outline-offset:3px}
@@ -889,6 +957,71 @@ translate:0 88px}
 .seq[data-end="true"] .n {
 translate:0 -88px}
 
+html[data-theme="dark"] dialog::backdrop {
+background:rgba(11,11,11,.88)}
+
+/* ===== theme toggle ===== */ .tools {
+display:flex;
+align-items:center;
+gap:1rem}
+
+.theme {
+    display:grid;
+    place-items:center;
+    width:34px;
+    height:34px;
+    padding:0;
+    background:none;
+    border:0;
+    border-radius:50%;
+    color:var(--soft);
+    cursor:pointer;
+transition:color .2s,transform .35s var(--ease)}
+
+.theme:hover {
+    color:var(--pink);
+transform:rotate(-14deg)}
+
+.theme svg {
+    grid-area:1/1;
+    width:19px;
+    height:19px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+transition:opacity .3s,transform .5s var(--ease)}
+
+html[data-theme="dark"] .i-moon {
+    opacity:0;
+transform:rotate(60deg) scale(.4)}
+
+html:not([data-theme="dark"]) .i-sun {
+    opacity:0;
+transform:rotate(-60deg) scale(.4)}
+
+.theming :not(.theme):not(.theme *) {
+    transition-property:background-color,color,border-color,fill,stroke,box-shadow!important;
+transition-duration:.4s!important}
+
+/* ===== background chemistry: chalk-style doodles scattered by main.js, kept very faint ===== */ body {
+position:relative}
+
+.chalk {
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+    pointer-events:none;
+user-select:none}
+
+.ch {
+    position:absolute;
+    display:block;
+    color:var(--chalk);
+transform-origin:50% 50%}
+
 footer {
     text-align:center;
     color:var(--soft);
@@ -901,13 +1034,16 @@ margin:0 auto}
 footer a {
 color:inherit}
 
-/* ===== responsive ===== */ @media(max-width:1200px) {
+/* ===== responsive ===== */ @media(min-width:861px) and (max-width:1200px) {
 .seq .p,.seq .c {
 visibility:hidden}
 
 }
 
 @media(max-width:860px) {
+    .tools {
+    gap:.3rem}
+
     .dnav,.side {
     display:none}
 
@@ -952,6 +1088,9 @@ visibility:hidden}
 
     .seq button {
     font-size:1rem}
+
+    .seq em span {
+    max-width:104px}
 
     .seq[data-end="true"] .p {
     translate:0 52px}
@@ -1012,6 +1151,35 @@ visibility:hidden}
 
     .mnav a {
     font-size:2.2rem}
+
+}
+
+@media(hover:none) {
+    .hover-only {
+    display:none}
+
+}
+
+@media(scripting:none) {
+    .meter .bar i {
+    width:var(--v,80%)}
+
+    mark {
+        background-size:100% .62em;
+    color:#000}
+
+}
+
+@media print {
+    .top,.side,.seq,.menu,.toast,.chalk,.skip {
+    display:none!important}
+
+    .shell {
+        display:block;
+    padding:0}
+
+    footer {
+    border:0}
 
 }
 

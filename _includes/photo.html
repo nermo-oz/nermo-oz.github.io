@@ -1,4 +1,4 @@
-<a class="photo" href="{{ '/personal/' | relative_url }}" data-pop="More about me">
+<a class="photo" href="{{ '/personal/' | relative_url }}" aria-label="More about me" data-pop="More about me">
   <span aria-hidden="true">NM</span>
-  <img src="{{ '/assets/img/me.jpg' | relative_url }}" alt="Portrait of {{ site.title }}" onerror="this.remove()">
+  <img src="{{ '/assets/img/me.jpg' | relative_url }}" alt="Portrait of {{ site.title }}" decoding="async" onerror="this.remove()">
 </a>

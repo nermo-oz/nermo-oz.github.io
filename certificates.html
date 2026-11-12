@@ -4,13 +4,13 @@ title: Certificates
 permalink: /certificates/
 ---
 <section>
-  <h1 style="font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:.6rem">Certificates</h1>
-  <p class="hand" style="text-align:left">hover a row to peek, view to enlarge</p>
+  <h1 class="title tight">Certificates</h1>
+  <p class="hand left"><span class="hover-only">hover a row to peek, </span>press View to enlarge</p>
   <ul class="rows certs">
   {% assign cs = site.data.certificates | sort: "date" | reverse %}
   {% for c in cs %}<li data-img="{{ c.file | relative_url }}">
     <span>{{ c.name }}<br><small>{{ c.issuer }}</small></span>
-    <span class="r"><time>{{ c.when }}</time><button class="linkbtn" type="button" data-lb="{{ c.file | relative_url }}" data-cap="{{ c.name }}">View</button></span>
+    <span class="r"><time datetime="{{ c.date }}">{{ c.when }}</time><button class="linkbtn" type="button" data-lb="{{ c.file | relative_url }}" data-cap="{{ c.name }}">View</button></span>
   </li>{% endfor %}
   </ul>
 </section>

@@ -18,7 +18,7 @@ layout: default
       <polygon class="ring" pathLength="1" points="187.6,72 220,62 240,89 220,116 187.6,106"/>
       <circle class="atom" cx="240" cy="89" r="6"/>
     </svg>
-    <span class="hand">hover the rings</span>
+    <span class="hand hover-only">hover the rings</span>
   </div>
 </section>
 
@@ -34,7 +34,7 @@ layout: default
   <article class="card">
     <h3>Computational drug design and steroid modification</h3>
     <p>In silico research on the structural modification of the steroid <a href="#skills" data-pop="Kyzatrex, the steroid this project works on">Kyzatrex</a> to enhance its pharmacological profile. Molecular modeling software used for receptor-binding simulations.</p>
-    <div class="meter"><b>−8.0</b><span>optimized binding affinity</span><span class="bar" aria-hidden="true"><i></i></span></div>
+    <div class="meter" style="--v:80%"><b>−8.0</b><span>optimized binding affinity</span><span class="bar" aria-hidden="true"><i></i></span></div>
     <ul class="tags"><li>In silico</li><li>Receptor binding</li><li>Molecular modeling</li></ul>
   </article>
   <article class="card">
@@ -72,17 +72,17 @@ layout: default
   <h2>Latest on the timeline</h2>
   <ul class="rows">
   {% assign tl = site.data.timeline | sort: "date" | reverse %}
-  {% for t in tl limit: 5 %}<li><span>{{ t.title }}</span><time>{{ t.when }}</time></li>{% endfor %}
+  {% for t in tl limit: 5 %}<li><span>{{ t.title }}</span><time datetime="{{ t.date }}">{{ t.when }}</time></li>{% endfor %}
   </ul>
-  <p style="margin-top:1.4rem"><a class="btn ghost" href="{{ '/timeline/' | relative_url }}">Full timeline</a></p>
+  <p class="more"><a class="btn ghost" href="{{ '/timeline/' | relative_url }}">Full timeline</a></p>
 </section>
 
 <section id="writing" data-sec="Writing">
   <h2>From the blog</h2>
   <ul class="rows">
-  {% for post in site.posts limit: 3 %}<li><span><a href="{{ post.url | relative_url }}">{{ post.title }}</a><br><small>{{ post.excerpt | strip_html | truncatewords: 22 }}</small></span><time>{{ post.date | date: "%b %Y" }}</time></li>{% else %}<li>No posts yet.</li>{% endfor %}
+  {% for post in site.posts limit: 3 %}<li><span><a href="{{ post.url | relative_url }}">{{ post.title }}</a><br><small>{{ post.excerpt | strip_html | truncatewords: 22 }}</small></span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time></li>{% else %}<li>No posts yet.</li>{% endfor %}
   </ul>
-  <p style="margin-top:1.4rem"><a class="btn ghost" href="{{ '/blog/' | relative_url }}">All posts</a></p>
+  <p class="more"><a class="btn ghost" href="{{ '/blog/' | relative_url }}">All posts</a></p>
 </section>
 
 <section id="contact" data-sec="Contact">
