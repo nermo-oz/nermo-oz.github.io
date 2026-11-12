@@ -1,4 +1,5 @@
 # date sorts the list (YYYY-MM); when is what visitors see. Add projects here once you have their dates.
+- {date: "2026-10-18", when: "Oct 2026 – present", title: "Chemistry and Anatomy Lab Specialist", note: "Faculty of Applied Health Sciences Technology, Delta University"}
 - {date: "2026-08", when: "Aug 2026", title: "Completed B.Sc. in Chemistry and Criminal Evidence", note: "Mansoura University, GPA 3.967 / 4"}
 - {date: "2024-08", when: "Aug 2024", title: "Specialized technical scientific course in forensic evidence", note: "Mansoura University"}
 - {date: "2024-08", when: "Aug 2024", title: "The Forensic Evidence in Achieving Justice", note: "Course, Mansoura University"}

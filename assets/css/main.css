@@ -504,6 +504,11 @@ mark.in {
     background-size:100% .62em;
 color:#000}
 
+/* In dark mode the marker band covers the whole word */
+html[data-theme="dark"] mark.in {
+    background-size:100% 100%;
+transition:background-size .8s cubic-bezier(.6,0,.2,1),color 0s .8s}
+
 .about p {
     margin:0 0 1.1rem;
 max-width:62ch}
