@@ -157,15 +157,26 @@
     } else seq.remove();
 
     /* header + menu */
-    const header = $(".top"), burger = $(".burger"), menu = $("#menu"), behind = $$(".shell,footer,.seq");
+    const header = $(".top"), burger = $(".burger"), menu = $("#menu"), behind = $$(".skip,.shell,footer,.seq");
     const onScroll = () => header.classList.toggle("scrolled", scrollY > 8);
     addEventListener("scroll", onScroll, { passive: true }); onScroll();
     const setMenu = o => {
+        if (o) {
+            const r = $("svg", burger).getBoundingClientRect();
+            menu.style.setProperty("--mx", r.left + r.width / 2 + "px"); menu.style.setProperty("--my", r.top + r.height / 2 + "px");
+            menu.scrollTop = 0; hide();
+        }
+        document.body.style.paddingRight = o ? innerWidth - root.clientWidth + "px" : "";
         document.body.classList.toggle("menu-open", o); behind.forEach(el => (el.inert = o));
         burger.setAttribute("aria-expanded", o); burger.setAttribute("aria-label", o ? "Close menu" : "Open menu");
     };
     burger.onclick = () => setMenu(!document.body.classList.contains("menu-open"));
-    menu.addEventListener("click", e => { if (e.target.closest("a:not([data-copy])")) setMenu(false); });
+    menu.addEventListener("click", e => {
+        const a = e.target.closest("a:not([data-copy])"); if (!a) return;
+        const leaving = !a.hasAttribute("download") && !(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) && a.href.split("#")[0] !== location.href.split("#")[0];
+        if (!leaving) setMenu(false);
+    });
+    addEventListener("pageshow", e => { if (e.persisted) setMenu(false); });
     addEventListener("keydown", e => { if (e.key === "Escape" && !lb.open && document.body.classList.contains("menu-open")) { setMenu(false); burger.focus(); } });
     matchMedia("(min-width:861px)").addEventListener("change", e => e.matches && setMenu(false));
 })();
